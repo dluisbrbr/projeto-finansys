@@ -5,5 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class CategoryService {
 
+  let a: string;
+
+  a = 'b';
+
   constructor() { }
 }
