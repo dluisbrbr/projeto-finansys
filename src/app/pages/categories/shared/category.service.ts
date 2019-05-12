@@ -8,6 +8,7 @@ import { Category } from './category.model';
 @Injectable({
   providedIn: 'root'
 })
+
 export class CategoryService extends BaseResourceService<Category> {
 
   constructor(protected injector: Injector) {
