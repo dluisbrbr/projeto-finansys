@@ -26,7 +26,7 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
     protected injector: Injector,
     public resource: T,
     protected resourceService: BaseResourceService<T>,
-    protected jsonDataToresourceFn: (jsonData) => T
+    protected jsonDataToResourceFn: (jsonData) => T
   ) { 
     this.route = injector.get(ActivatedRoute);
     this.router = injector.get(Router);
@@ -92,7 +92,7 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
   }
 
   protected createResource(){
-    const resource: T = this.jsonDataToresourceFn(this.resourceForm.value);
+    const resource: T = this.jsonDataToResourceFn(this.resourceForm.value);
 
     this.resourceService.create(resource)
       .subscribe(
@@ -102,7 +102,7 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
   }
 
   protected updateResource(){
-    const resource: T = this.jsonDataToresourceFn(this.resourceForm.value);
+    const resource: T = this.jsonDataToResourceFn(this.resourceForm.value);
 
     this.resourceService.update(resource)
       .subscribe(

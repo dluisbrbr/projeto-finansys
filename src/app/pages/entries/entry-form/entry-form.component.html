@@ -37,7 +37,7 @@
   
         <div class="form-row">
           <!-- type -->
-          <div class="form-group col-md-2">
+          <div class="form-group col-sm-2">
             <label for="name">Tipo</label>
             <select name="type" id="type" class="form-control" formControlName="type">
               <option *ngFor="let option of typeOptions" [value]="option.value">{{option.text}}</option>
@@ -48,7 +48,7 @@
             </div>
           </div>
   
-          <div class="form-group col-md-5">
+          <div class="form-group col-sm-5">
             <label for="name">Lançamento</label>
             <input type="text" class="form-control" id="name" formControlName="name">
   
@@ -59,7 +59,7 @@
   
           </div>
   
-          <div class="form-group col-md-3">
+          <div class="form-group col-sm-3">
             <label for="amount">Valor</label>
   
             <div class="input-group">
@@ -76,7 +76,7 @@
   
           </div>
   
-          <div class="form-group col-md-2">
+          <div class="form-group col-sm-2">
             <label for="date">Data</label>
   
             <p-calendar id="date" formControlName="date" inputStyleClass="form-control" dataType="string"
@@ -93,7 +93,7 @@
   
         <div class="form-row">
   
-          <div class="form-group col-md-2">
+          <div class="form-group col-sm-2">
             <label for="paid">Pago</label>
   
             <div class="btn-group">
@@ -114,7 +114,7 @@
           </div>
   
           <!-- Categoria ID -->
-          <div class="form-group col-md-3">
+          <div class="form-group col-sm-3">
             <label for="categoryId">Categoria</label>
             <select name="categoryId" id="categoryId" class="form-control" formControlName="categoryId">
               <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
@@ -125,7 +125,7 @@
             </div>
           </div>
 
-          <div class="form-group col-md-7">
+          <div class="form-group col-sm-7">
             <label for="name">Descrição</label>
             <input type="text" class="form-control" id="description" formControlName="description">
           </div>

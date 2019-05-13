@@ -16,7 +16,7 @@ export class CategoryFormComponent extends BaseResourceFormComponent<Category> {
   constructor(
     protected categoryService: CategoryService, 
     protected injector: Injector
-  ) { 
+  ) {
     super(injector, new Category(), categoryService, Category.fromJson)
   }
 
@@ -26,6 +26,15 @@ export class CategoryFormComponent extends BaseResourceFormComponent<Category> {
       name: [null, [Validators.required, Validators.minLength(2)]],
       description: [null]
     })
+  }
+
+  protected creationPageTitle(): string {
+    return 'Cadastro de nova categoria';
+  }
+
+  protected editionPageTitle(): string {
+    const catName = this.resource.name || '';
+    return "Editando categoria: " + catName;
   }
 
 }
