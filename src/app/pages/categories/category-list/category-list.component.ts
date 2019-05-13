@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
+import { BaseResourceListComponent } from "../../../shared/components/base-resource-list.component/base-resource-list.component";
 
 import { Category  } from "../shared/category.model";
 import { CategoryService  } from "../shared/category.service";
@@ -9,28 +11,17 @@ import { CategoryService  } from "../shared/category.service";
   templateUrl: './category-list.component.html',
   styleUrls: ['./category-list.component.css']
 })
-export class CategoryListComponent implements OnInit {
+export class CategoryListComponent extends BaseResourceListComponent<Category> {
 
-  categories: Category[] = [];
 
-  constructor(private categoryService: CategoryService) { }
-
-  ngOnInit() {
-    this.categoryService.getAll().subscribe(
-      categories => this.categories = categories,
-      error => alert("Erro ao carregar a alista")
-    )
+  // variavel a ser utilizada no ngFor do template, retorna o valor dos resources
+  // caso nao quisesse usar desta forma teriamos de trocar no template o nome da variavel catefories por resources
+  get categories() {
+    return this.resources;
   }
 
-  deleteCategory(category: Category){
-    const mustDelete = confirm('Deseja excluir mesmo este item?')
-
-    if (mustDelete) {
-      this.categoryService.delete(category.id).subscribe(
-        () => this.categories = this.categories.filter(element => element != category),
-        () => alert('Erro ao exluir a categoria')
-      )
-    }
-  }
+  constructor(private categoryService: CategoryService) {
+    super(categoryService);
+   }
 
 }
