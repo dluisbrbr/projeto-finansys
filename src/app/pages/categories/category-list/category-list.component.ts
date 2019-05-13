@@ -15,7 +15,7 @@ export class CategoryListComponent extends BaseResourceListComponent<Category> {
 
 
   // variavel a ser utilizada no ngFor do template, retorna o valor dos resources
-  // caso nao quisesse usar desta forma teriamos de trocar no template o nome da variavel catefories por resources
+  // caso nao quisesse usar desta forma teriamos de trocar no template o nome da variavel categories por resources
   get categories() {
     return this.resources;
   }
